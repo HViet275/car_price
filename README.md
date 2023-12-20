@@ -1,10 +1,19 @@
 # Car Price Prediction.
 
 ## Description
+Implement Linear Regression for car price prediction considering multiple factors.
+Uncover the intricate relationships between independent variables and their impact on predicting car prices through the application of algorithms.
 
+## Install
+- Clone this repository to your computer.
+- Run the app.py file to start the application.
 
+## CODE
+- Preparation data
+- EDA (Exploratory Data Analysis)
+- Training data for machine learning models
+- Build prediction app.
 
-<a name="Structure"></a>
 ## Structure
 
 - app.py

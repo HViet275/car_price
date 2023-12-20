@@ -18,8 +18,8 @@ Uncover the intricate relationships between independent variables and their impa
 
 - app.py
 - build_model.ipynb
-- index.html
-- result.html
+- LN-prediction-model.pkl
+- X.csv
 - /data
     - audi.csv
     - bmw.csv

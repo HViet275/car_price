@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thông tin xe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+    }
+
+    .image-column {
+      flex: 2; /* 2/3 của màn hình */
+      overflow: hidden; /* Tránh tràn khi ảnh quá lớn */
+    }
+
+    .form-column {
+      flex: 1; /* 1/3 của màn hình */
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .image {
+      width: 90%;
+      height: auto; /* Đảm bảo tỷ lệ khung hình không bị thay đổi */
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+
+    .form-group select, .form-group input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .submit-button {
+      margin-top: 20px;
+    }
+
+    .submit-button input[type="submit"] {
+      width: 100%;
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-button input[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-column">
+    <img src="{{ url_for('static', filename='images/anh-chu-thich.png') }}" alt="Ảnh chủ thích" class="image">
+  </div>
+  <div class="form-column">
+    <h1 class="header">Thông tin xe</h1>
+    <form action="/predict" method="post">
+      
+      <div class="form-group">
+        <label for="year">Năm sản xuất:</label>
+        <input type="number" name="year" required>
+      </div>
+
+      <div class="form-group">
+        <label for="transmission">Hộp số:</label>
+        <select name="transmission" required>
+          <option value="" disabled selected>Chọn hộp số</option>
+          <option value="Automatic">Tự động</option>
+          <option value="Manual">Số sàn</option>
+          <option value="Semi-Auto">Semi-Tự động</option>
+          <option value="Other">Khác</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="mileage">Số dặm đã đi:</label>
+        <input type="text" name="mileage" required>
+      </div>
+
+      <div class="form-group">
+        <label for="fuelType">Loại nhiên liệu:</label>
+        <select name="fuelType" required>
+          <option value="" disabled selected>Chọn loại nhiên liệu</option>
+          <option value="Diesel">Dầu Diesel</option>
+          <option value="Hybrid">Hybrid</option>
+          <option value="Petrol">Xăng</option>
+          <option value="Other">Khác</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="automaker">Hãng sản xuất:</label>
+        <select name="automaker" required>
+          <option value="" disabled selected>Chọn hãng xe</option>
+          <option value="audi">Audi</option>
+          <option value="bmw">BMW</option>
+          <option value="focus">Focus</option>
+          <option value="ford">Ford</option>
+          <option value="hyundi">Hyundi</option>
+          <option value="merc">Mercedes</option>
+          <option value="skoda">Skoda</option>
+          <option value="toyota">Toyota</option>
+          <option value="vauxhall">Vauxhall</option>
+          <option value="vw">VW</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="tax">Thuế:</label>
+        <input type="text" name="tax" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mpg">Miles per gallon (MPG):</label>
+        <input type="text" name="mpg" required>
+      </div>
+
+      <div class="form-group">
+        <label for="engineSize">Kích thước động cơ:</label>
+        <input type="text" name="engineSize" required>
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="isols">Chọn mô hình dự báo:</label>
+        <select name="isols" required>
+          <option value="" disabled selected>Chọn mô hình</option>
+          <option value="ols">Hồi quy OLS</option>
+          <option value="machine learning">Học máy bằng sklearn</option>
+        </select>
+      </div> -->
+
+      <div class="submit-button">
+        <input type="submit" value="Dự báo giá xe">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
